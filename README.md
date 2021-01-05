@@ -1,7 +1,7 @@
 # Artificial_Vision-Unisa-_2021_group4
 Repository github da allegare alla consegna del progetto di visione artificiale dell'appello di gennaio per l'anno 2020/2021
 
-# Spiegazione degli script
+# Spiegazione degli script della pipeline
 * 1_augcsv_prepare divide un csv in csv da non modificare e uno sulle cui immagini indicate effettuare augmentation
 * 2_csv_divider divide un csv in n parti uguali
 * 3_aug_creation dato un csv prende tutte le immagini indicate, le cerca dalla root del dataset, le apre le modifica e le stampa in una cartella extra chiamata "augment" inoltre stampa un csv relativo a queste
