@@ -4,20 +4,27 @@ import pathlib
 import numpy as np
 import random
 import _util_prepare_ as util
-
+import os
+import shutil
 
 """given some csvs it reads imges, detects face, puts image on it and adds it to one of n tfrecord files"""
 
 """FUNDAMENTAL ARGS"""
+"""
+[WARNING]
+root is where to find dataset
+if it's the first time you run this code,
+write your relative dataset path here
+"""
+#root = "./../../complete_train"
+root="./ultra_lite_train"
 """where to find original csvs to work with"""
 """WG:this script is very slow, I do not suggest to read all csv at once but to indicate a 'cache folder'
 for a bunch of csvs"""
-csv_root = "./__script_files/__4divided_csv_with_aug"
-#csv_root = "./__script_files/cache_csvs"
-"""where to find dataset"""
-root = "./../../complete_train"
+csv_root = "./divided_csv/"
+#csv_root = "./cache_csvs"
 """where to print csvs"""
-output = "./__script_files/__5tf_records"
+output = "./tf_records"
 """size to resize each image to"""
 size = 96
 
@@ -182,6 +189,16 @@ tf.executing_eagerly()
 
 
 """BEGINNING OF THE SCRIPT"""
+if not os.path.isdir(root):
+    print("modify root constant in the code with your relative path to dataset root")
+    exit(404)
+
+if os.path.isdir(output):
+    shutil.rmtree(output)
+
+os.mkdir(output)
+
+
 """it collects each csv found in the folder"""
 p = pathlib.Path(csv_root)
 found_csvs = [x for x in p.iterdir() if x.is_file()]

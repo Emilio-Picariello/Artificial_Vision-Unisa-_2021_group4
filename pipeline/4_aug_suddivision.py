@@ -8,9 +8,9 @@ import pathlib
 
 """FUNDAMENTAL ARGS"""
 """where to find augment csv"""
-csv_path='./__script_files/__3augmented/augmented.csv'
+csv_path='./augmented_csv/augmented.csv'
 """where to find original csvs"""
-root_original_csvs = "./__script_files/__4divided_csv_with_aug/"
+root_original_csvs = "./divided_csv/"
 
 
 """BEGINNING OF THE SCRIPT"""
